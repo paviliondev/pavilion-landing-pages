@@ -97,16 +97,20 @@
   </div>
 </div>
 
-<script>
-  var title = lottie.loadAnimation({
-    container: document.querySelector(".lottie.join"),
-    renderer: 'svg',
-    autoplay: true,
-    loop: false,
-    path: "<%= @join.upload.url %>"
-  });
-  title.setSpeed(0.2);
-  
+<% if @join.present? %>
+  <script>
+    var title = lottie.loadAnimation({
+      container: document.querySelector(".lottie.join"),
+      renderer: 'svg',
+      autoplay: true,
+      loop: false,
+      path: "<%= @join.upload.url %>"
+    });
+    title.setSpeed(0.2);
+  </script>
+<% end %>
+
+<script>  
   setTimeout(() => {
     lottie.loadAnimation({
       container: document.querySelector(".lottie.who"),
@@ -136,15 +140,19 @@
       path: "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/lottie/working.json"
     });
   }, 150);
-  
-  setTimeout(() => {
-    var contact = lottie.loadAnimation({
-      container: document.querySelector(".lottie.contact"),
-      renderer: 'svg',
-      autoplay: true,
-      loop: false,
-      path: "<%= @contact.upload.url %>"
-    });
-    contact.setSpeed(0.2);
-  }, 250);
 </script>
+
+<% if @contact.present? %>
+  <script>
+    setTimeout(() => {
+      var contact = lottie.loadAnimation({
+        container: document.querySelector(".lottie.contact"),
+        renderer: 'svg',
+        autoplay: true,
+        loop: false,
+        path: "<%= @contact.upload.url %>"
+      });
+      contact.setSpeed(0.2);
+    }, 250);
+  </script>
+<% end %>
