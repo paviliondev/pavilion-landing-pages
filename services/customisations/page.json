@@ -3,7 +3,9 @@
   "path": "customisations",
   "menu": "landing",
   "theme": "Pavilion Landing Theme",
-  "groups": [],
+  "groups": [
+    "members"
+  ],
   "assets": [
     "customisations",
     "contact"
