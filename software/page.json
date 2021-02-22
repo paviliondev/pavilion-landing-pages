@@ -3,9 +3,6 @@
   "path": "software",
   "menu": "landing",
   "theme": "Pavilion Landing Theme",
-  "groups": [
-    "members"
-  ],
   "assets": [
     "software",
     "contact"

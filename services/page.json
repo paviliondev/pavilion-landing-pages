@@ -3,9 +3,6 @@
   "path": "services",
   "menu": "landing",
   "theme": "Pavilion Landing Theme",
-  "groups": [
-    "members"
-  ],
   "assets": [
     "services",
     "contact"

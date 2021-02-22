@@ -2,8 +2,5 @@
   "name": "Discord",
   "path": "discord",
   "menu": "landing",
-  "theme": "Pavilion Landing Theme",
-  "groups": [
-    "members"
-  ]
+  "theme": "Pavilion Landing Theme"
 }

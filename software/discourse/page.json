@@ -2,8 +2,5 @@
   "name": "Discourse",
   "path": "discourse",
   "menu": "landing",
-  "theme": "Pavilion Landing Theme",
-  "groups": [
-    "members"
-  ]
+  "theme": "Pavilion Landing Theme"
 }
