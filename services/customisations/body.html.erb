@@ -136,7 +136,7 @@
       loop: true,
       path: "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/lottie/plugfail.json"
     });
-  }, 50);
+  }, 30);
   
   setTimeout(() => {
     lottie.loadAnimation({
@@ -146,7 +146,7 @@
       loop: true,
       path: "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/lottie/alarm.json"
     });
-  }, 100);
+  }, 60);
   
   setTimeout(() => {
     lottie.loadAnimation({
@@ -156,7 +156,7 @@
       loop: true,
       path: "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/lottie/highfive.json"
     });
-  }, 150);
+  }, 90);
 </script>
 
 <% if @contact.present? %>
@@ -170,6 +170,6 @@
         path: "<%= @contact.upload.url %>"
       });
       contact.setSpeed(0.2);
-    }, 200);
+    }, 120);
   </script>
 <% end %>

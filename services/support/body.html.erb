@@ -208,7 +208,7 @@
       loop: true,
       path: "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/lottie/mechanic.json"
     });
-  }, 50);
+  }, 30);
 </script>
 
 <% if @contact.present? %>
@@ -222,6 +222,6 @@
         path: "<%= @contact.upload.url %>"
       });
       contact.setSpeed(0.2);
-    }, 100);
+    }, 60);
   </script>
 <% end %>

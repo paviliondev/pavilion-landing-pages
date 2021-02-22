@@ -119,7 +119,7 @@
       loop: true,
       path: "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/lottie/who.json"
     });
-  }, 50);
+  }, 30);
   
   setTimeout(() => {
     lottie.loadAnimation({
@@ -129,7 +129,7 @@
       loop: true,
       path: "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/lottie/joining.json"
     });
-  }, 100);
+  }, 60);
   
   setTimeout(() => {
     lottie.loadAnimation({
@@ -139,7 +139,7 @@
       loop: true,
       path: "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/lottie/working.json"
     });
-  }, 150);
+  }, 90);
 </script>
 
 <% if @contact.present? %>
@@ -153,6 +153,6 @@
         path: "<%= @contact.upload.url %>"
       });
       contact.setSpeed(0.2);
-    }, 250);
+    }, 120);
   </script>
 <% end %>
