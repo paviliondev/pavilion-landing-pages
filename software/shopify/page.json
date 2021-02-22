@@ -2,5 +2,6 @@
   "name": "Shopify",
   "path": "shopify",
   "menu": "landing",
-  "theme": "Pavilion Landing Theme"
+  "theme": "Pavilion Landing Theme",
+  "groups": []
 }

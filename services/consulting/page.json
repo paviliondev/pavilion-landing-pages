@@ -3,6 +3,7 @@
   "path": "consulting",
   "menu": "landing",
   "theme": "Pavilion Landing Theme",
+  "groups": [],
   "assets": [
     "consulting",
     "contact"

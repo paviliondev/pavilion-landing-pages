@@ -3,6 +3,7 @@
   "path": "support",
   "menu": "landing",
   "theme": "Pavilion Landing Theme",
+  "groups": [],
   "assets": [
     "support",
     "contact"

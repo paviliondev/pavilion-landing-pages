@@ -2,5 +2,6 @@
   "name": "Auth0",
   "path": "auth0",
   "menu": "landing",
-  "theme": "Pavilion Landing Theme"
+  "theme": "Pavilion Landing Theme",
+  "groups": []
 }
