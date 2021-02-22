@@ -1,0 +1,13 @@
+{
+  "name": "Support",
+  "path": "support",
+  "menu": "landing",
+  "theme": "Pavilion Landing",
+  "groups": [
+    "members"
+  ],
+  "assets": [
+    "support",
+    "contact"
+  ]
+}

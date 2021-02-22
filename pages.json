@@ -1,0 +1,112 @@
+{
+  "scripts": [
+    "https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.6.5/lottie.min.js"
+  ],
+  "header": {
+    "root": "/welcome",
+    "notice": {
+      "href": "/join",
+      "text": "We're looking for new members"
+    }
+  },
+  "footer": {
+    "root": "/welcome",
+    "logo": "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/logo-inverse.svg",
+    "left_text": "These pages are <a href='https://github.com/paviliondev/pavilion-landing-pages' target='_blank'>open source</a>, and built with our <a href='/c/knowledge/landing-pages'>Landing Pages Plugin</a> for <a href='https://discourse.org'>Discourse</a>. We've used a background made by <a href='https://franzidraws.com' target='_blank'>Franzi</a>. We've used animations made by <a href='https://lottiefiles.com/henriqrossatto' target='_blank'>Henrique Rossatto on LottieFiles</a>, Shakuro on both <a href='https://lottiefiles.com/Shakuro'>LottieFiles</a> and <a href='https://drawer.design/products/collaborative-characters/' target='_blank'>Drawer</a>, <a href='https://lottiefiles.com/dotolina' target='_blank'>Dotolina on LottieFiles</a> and by <a href='https://drawer.design/vendor/drawer' target='_blank'>Drawer itself</a>. We've used icons made by <a href='https://icons8.com/' target='_blank'>Icons8</a>. Those assets are used under license, and the copyright belongs to their wonderful creators."
+  },
+  "menus": [
+    {
+      "name": "landing",
+      "items": [
+        {
+          "label": "Software",
+          "description": "We build user-friendly open source software for community platforms.",
+          "href": "/software",
+          "items": [
+            {
+              "label": "Discourse",
+              "href": "/discourse",
+              "description": "Plugins and Themes for Discourse"
+            },
+            {
+              "label": "Wordpress",
+              "href": "/wordpress",
+              "description": "Plugins and Themes for Wordpress"
+            },
+            {
+              "label": "Discord",
+              "href": "/discord",
+              "description": "Bots and Integrations for Discord"
+            },
+            {
+              "label": "Auth0",
+              "href": "/auth0",
+              "description": "Rules and Integrations for Auth0"
+            },
+            {
+              "label": "Shopify",
+              "href": "/shopify",
+              "description": "Themes and Inegrations for Shopify"
+            },
+            {
+              "label": "Something Else?",
+              "href": "/software#contact",
+              "description": "We work with any community platform"
+            }
+          ]
+        },
+        {
+          "label": "Services",
+          "description": "We provide development, product and support services for communities.",
+          "href": "/services",
+          "items": [
+            {
+              "label": "Consulting",
+              "href": "/consulting",
+              "description": "We provide strategic advice"
+            },
+            {
+              "label": "Customisations",
+              "href": "/customisations",
+              "description": "We customise community software"
+            },
+            {
+              "label": "Support",
+              "href": "/support",
+              "description": "We provide support and maintenance"
+            },
+            {
+              "label": "Education",
+              "href": "/education",
+              "description": "Courses for developers and community managers",
+              "coming_soon": true
+            }
+          ]
+        },
+        {
+          "label": "Who We Are",
+          "description": "We empower freelancers to work on open source software, and make a decent living.",
+          "href": "/who-we-are",
+          "items": [
+            {
+              "label": "Members",
+              "href": "/members",
+              "description": "More about our members"
+            },
+            {
+              "label": "Join",
+              "href": "/join",
+              "description": "How to join Pavilion"
+            },
+            {
+              "label": "Blog",
+              "href": "/blog",
+              "description": "Observations and anecdotes from our work",
+              "coming_soon": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

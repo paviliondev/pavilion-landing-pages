@@ -1,0 +1,20 @@
+<div class="product page landing">
+  <div class="container">
+    <div class="main-title">    
+      <a class="product-link" href="https://shopify.com" title="Shopify">
+        <div class="image-container">
+          <div class="image shopify-large"></div>
+        </div>
+      </a>
+      <a href="https://calendly.com/book-pavilion/initial-consult" class="btn" target="_blank">
+        Talk to us about integrating Shopify into your community
+      </a>
+    </div>
+    <div class="main-description">
+      <p>We have experience building Shopify themes and apps for communities, and integrating Shopify with communities using identity management systems.</p>
+    </div>
+    <div id="topics" class="section anchor-buffer">
+      <%= render partial: "topic_list", locals: { topics: topic_list(opts: { category: 199, no_definitions: true }) } %>
+    </div>
+  </div>
+</div>

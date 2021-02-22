@@ -1,0 +1,31 @@
+<div class="product page landing">
+  <div class="container">
+    <div class="main-title">
+      <a class="product-link" href="https://discourse.org" title="Discourse.org">
+        <div class="image-container">
+          <div class="image discourse-large"></div>
+        </div>
+      </a>
+      <a href="https://calendly.com/book-pavilion/initial-consult" class="btn" target="_blank">
+        Talk to us about using Discourse to run your community
+      </a>
+    </div>
+    <div class="main-description">
+      <p>Discourse is the market-leading discussion platform, and Pavilion's spiritual home. 100% open source, highly regarded in the industry and used by some of best communities on the internet. We have over 30 open source Discourse plugins and themes you can use for free in your own Discourse community, many of which are used by hundreds of Discourse communities across the world.</p>
+    </div>
+    <div id="plugins" class="section anchor-buffer">
+      <div class="title">
+        <a href="#plugins" title="Pavilion's Discourse Plugins">Plugins</a>
+      </div>
+      <%= render partial: "topic_list", locals: {
+        topics: topic_list(opts: { category: 171, definitions_only: true, filter_categories: [171, 129] })
+      } %>
+    </div>
+    <div id="themes" class="section anchor-buffer themes">
+      <div class="title">
+        <a href="#themes" title="Pavilion's Discourse Themes">Themes</a>
+      </div>
+      <%= render partial: "topic_list", locals: { topics: topic_list(opts: { category: 129, no_definitions: true }) } %>
+    </div>
+  </div>
+</div>

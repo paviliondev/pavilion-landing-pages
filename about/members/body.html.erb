@@ -1,0 +1,53 @@
+<% topic_list(opts: { order: 'views', category: 171, definitions_only: true, filter_categories: [171, 129] }, instance_var: "plugins", group_name: 'members') %>
+<% topic_list(opts: { order: 'views', category: 129, no_definitions: true }, instance_var: "themes", group_name: 'members') %>
+<% topic_list(opts: { order: 'views', category: 195, no_definitions: true }, instance_var: "discord", group_name: 'members') %>
+<% topic_list(opts: { order: 'views', category: 198, no_definitions: true }, instance_var: "auth0", group_name: 'members') %>
+<% topic_list(opts: { order: 'views', category: 199, no_definitions: true }, instance_var: "shopify", group_name: 'members') %>
+<% topic_list(opts: { order: 'views', category: 194, no_definitions: true }, instance_var: "wordpress", group_name: 'members') %>
+
+<div class="landing">
+  <div id="member-list" class="section anchor-buffer">
+    <div class="title">
+      <h1 title="Our Members">Our Members</h1>
+      <div class="item-list-toggle">
+        <a href="#everyone" class="toggle active" data-group>Everyone</a>
+        <a href="#developers" class="toggle" data-group="developers">Developers</a>
+        <a href="#project-managers" class="toggle" data-group="project-managers">Project Managers</a>
+        <a href="#board" class="toggle" data-group="board">Board</a>
+      </div>
+    </div>
+    <ul class="item-list">
+      <% user_list(group_name: 'members', order: "random() ASC").each do |user| %>
+        <li class="item <%= user.groups.where(name: ['developers', 'project_managers', 'board']).map{ |g| g.name.downcase.dasherize }.join(' ') %>">
+          <div class="user-details-container">
+            <% if user.card_background_upload.present? %>
+              <div class="user-card-background" style="background-image: url(<%= user.card_background_upload&.url %>);"></div>
+            <% end %>
+            <%= user_profile(
+              user,
+              avatar_size: 120,
+              show_groups: ['developers', 'project_managers', 'board'],
+              add_bio: true,
+              top_extra: "<ul class='user-links'>
+                <li><a class='btn btn-icon' href='#{Discourse.base_url}/new-message?username=#{user.username}'>#{SvgSprite.raw_svg('envelope')}</a></li>
+                <li><a class='btn btn-icon' href='https://github.com/#{user.user_associated_accounts.where("provider_name = 'github'").select("info->'nickname' as nickname").first.try(:nickname)}'>#{SvgSprite.raw_svg('fab-github')}</a></li>
+                <li><a class='btn btn-icon' href='https://meta.discourse.org/u/#{user.try(:meta_username) || user.username}'>#{SvgSprite.raw_svg('fab-discourse')}</a></li>
+              </ul>".strip
+            ) %>
+          </div>
+          <div class="user-topic-lists">
+            <% if (@plugins + @themes + @discord + @auth0 + @wordpress + @shopify).select { |t| t.user_id == user.id }.any? %>
+              <div class="user-topic-list">
+                <ul class="user-customisations">
+                  <% (@plugins + @themes + @discord + @auth0 + @wordpress + @shopify).select { |t| t.user_id == user.id }[0..6].each do |t| %>
+                    <li><%= link_to emoji_codes_to_img(t.fancy_title), t.relative_url %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

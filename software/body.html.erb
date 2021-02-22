@@ -1,0 +1,95 @@
+<div class="landing page software">
+  <div class="container">
+    <div class="title-container">
+      <% if !mobile_view? && @software.present? %>
+        <div class="lottie title software"></div>
+      <% else %>
+        <h1>User Friendly Software</h1>
+      <% end %>
+    </div>
+    <div class="buttons">
+      <a href="#platforms" class="btn btn-primary btn-cta scroll-and-center">Check out our library</a>
+      <a href="/w/feature-request" class="btn btn-cta">Request a feature</a>
+      <a href="/w/bug-report" class="btn btn-cta">Report a bug</a>
+    </div>
+  </div>
+</div>
+
+<div id="platforms" class="page">
+  <div class="puzzle-container">
+    <ul class="platform-puzzle">
+      <% [
+        { class: "puzzle-piece-2 top" },
+        { class: "puzzle-piece-3 top active horizontal", mobile_class: "puzzle-piece-1 horizontal", name: "Discourse", url: "/discourse", description: "We customise, support and integrate. Check out our open-source Discourse work." },
+        { class: "puzzle-piece-2 top active vertical", mobile_class: "puzzle-piece-1 vertical", name: "Shopify", url: "/shopify", description: "We customise and integrate. Cool open-source stuff coming soon." },
+        { class: "puzzle-piece-3 top active horizontal", mobile_class: "puzzle-piece-1 horizontal", name: "Wordpress", url: "/wordpress", description: "We customise, support and integrate. Check out our open-source Wordpress work." },
+        { class: "puzzle-piece-2 top" },
+        { class: "puzzle-piece-1 middle horizontal" },
+        { class: "puzzle-piece-1 middle vertical active", mobile_class: "puzzle-piece-1 vertical", name: "Discord", url: "/discord", description: "We customise and integrate. Check out our open-source Discord work." },
+        { class: "puzzle-piece-1 middle horizontal active", mobile_class: "puzzle-piece-1 horizontal", name: "Auth0", url: "/auth0", description: "We manage and integrate. Open source stuff coming soon!" },
+        { class: "puzzle-piece-1 middle vertical active", mobile_class: "puzzle-piece-1 vertical", name: "Something Else?", url: "#contact", description: "We can help. Reach out below." },
+        { class: "puzzle-piece-1 middle horizontal" },
+        { class: "puzzle-piece-2 bottom" },
+        { class: "puzzle-piece-3 bottom horizontal" },
+        { class: "puzzle-piece-2 bottom" },
+        { class: "puzzle-piece-3 bottom" },
+        { class: "puzzle-piece-2 bottom" }
+      ].each do |platform| %>
+        <% if !mobile_view? || platform[:mobile_class].present? %>
+          <li class="<%= mobile_view? ? platform[:mobile_class] : platform[:class] %> show-puzzle">
+            <div class="puzzle-piece"></div>
+            
+            <% if platform[:name] %>
+              <a href="<%= platform[:url] %>" class="contents <%= platform[:name].parameterize %>" title="<%= platform[:name] %>">
+                <div class="image <%= platform[:name].parameterize %>"></div>
+                <span class="name"><%= platform[:name] %></span>
+                <span class="description"><%= platform[:description].html_safe %></span>
+              </a>
+            <% end %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<div id="contact" class="page contact">
+  <div class="container">
+    <div class="title-container">
+      <% if !mobile_view? && @contact %>
+        <div class="lottie contact"></div>
+      <% else %>
+        <h1>Talk to Us</h1>
+      <% end %>
+    </div>
+    <%= render partial: "contact_form" %>
+  </div>
+</div>
+
+<% if @software.present? %>
+  <script>
+    var title = lottie.loadAnimation({
+      container: document.querySelector(".lottie.software"),
+      renderer: 'svg',
+      autoplay: true,
+      loop: false,
+      path: "<%= @software.upload.url %>"
+    });
+    title.setSpeed(0.2);
+  </script>
+<% end %>
+
+<% if @contact.present? %>
+  <script>
+    setTimeout(() => {
+      var contact = lottie.loadAnimation({
+        container: document.querySelector(".lottie.contact"),
+        renderer: 'svg',
+        autoplay: true,
+        loop: false,
+        path: "<%= @contact.upload.url %>"
+      });
+      contact.setSpeed(0.2);
+    }, 50);
+  </script>
+<% end %>

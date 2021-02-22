@@ -1,0 +1,175 @@
+<div class="page landing">  
+  <div class="container">
+    <div class="title-container">
+      <% if !mobile_view? && @customisations %>
+        <div class="lottie title customisations"></div>
+      <% else %>
+        <h1>Reliable Customisations</h1>
+      <% end %>
+    </div>
+    <div class="text-container">
+      <div class="secondary-text">
+        Building a plugin, theme, script or integration requires a different skill-set than building an app. We've earned those skills through years of experience.
+      </div>
+      <ul class="platform-shortlist">
+        <li><a href="https://discourse.org" target="_blank" title="Discourse">
+          <div class="image discourse"></div>
+        </a></li>
+        <li><a href="https://wordpress.org" target="_blank" title="Wordpress">
+          <div class="image wordpress"></div>
+        </a></li>
+        <li><a href="https://auth0.com" target="_blank" title="Auth0">
+          <div class="image auth0"></div>
+        </a></li>
+        <li><a href="https://shopify.com" target="_blank" title="Shopify">
+          <div class="image shopify"></div>
+        </a></li>
+        <li><a href="https://discord.com" target="_blank" title="Discord">
+          <div class="image discord"></div>
+        </a></li>
+        <li><a href="/software" class="more">more</a></li>
+      </ul>
+    </div>
+    <div class="buttons">
+      <a href="https://calendly.com/book-pavilion" class="btn btn-primary btn-cta">
+        <span>Book a consultation</span>
+      </a>
+      <a href="#need" class="btn btn-cta scroll-and-center">Learn more</a>
+    </div>
+  </div>
+</div>
+
+<div id="need" class="page first">
+  <div class="container">
+    <div class="scene-container">
+      <div class="lottie scene shakuro medium plugfail"></div>
+    </div>
+    <div class="text-container">
+      <div class="primary-text">
+        <span>Off-the-shelf doesn't always work</span>
+      </div>
+      <div class="secondary-text">
+        No matter how good community software is, a real life community may need more, or less, or something slightly different. Quality community software is built with customisation in mind. That's where we can help.
+      </div>
+    </div>
+    <div class="buttons">
+      <a href="https://calendly.com/book-pavilion" class="btn btn-primary btn-cta">
+        Book a consultation
+      </a>
+    </div>
+  </div>
+</div>
+
+<div id="support" class="page second">
+  <div class="container">
+    <div class="scene-container">
+      <div class="lottie scene shakuro medium alarm"></div>
+    </div>
+    <div class="text-container">
+      <div class="primary-text">
+        <span>It's hard to keep it together</span>
+      </div>
+      <div class="secondary-text">
+        Even the best customisations need maintenance. Community software is always changing to keep up with the latest user needs, technologies, security threats and regulations. We have both free and paid support services to help you manage your community assets once they're in place.
+      </div>
+    </div>
+    <div class="buttons">
+      <a href="/support" class="btn btn-cta btn-primary">Our support options</a>
+    </div>
+  </div>
+</div>
+
+<div id="multi-platform" class="page third">
+  <div class="container">
+    <div class="scene-container">
+      <div class="lottie scene shakuro medium highfive"></div>
+    </div>
+    <div class="text-container">
+      <div class="primary-text">
+        <span>We can make it all fit</span>
+      </div>
+      <div class="secondary-text">
+        Modern online communities are more and more frequently multi-platform communities. A forum for discussion, a chat app for chat and a website for information. We have years of experience helping communities manage multiple platforms, including tricky topics like identity management. 
+      </div>
+    </div>
+    <div class="buttons">
+      <a href="https://calendly.com/book-pavilion" class="btn btn-primary btn-cta">Book a consultation</a>
+    </div>
+  </div>
+</div>
+
+<div class="page contact">
+  <div class="container">
+    <div class="title-container">
+      <% if !mobile_view? && @contact %>
+        <div class="lottie contact"></div>
+      <% else %>
+        <h1>Talk to Us</h1>
+      <% end %>
+    </div>
+    <div class="buttons">
+      <a href="https://calendly.com/book-pavilion/initial-consult" class="btn btn-primary btn-cta">Book a consultation</a>
+      <a href="/support" class="btn btn-cta">More about support</a>
+    </div>
+  </div>
+</div>
+
+<% if @customisations.present? %>
+  <script>
+    var title = lottie.loadAnimation({
+      container: document.querySelector(".lottie.customisations"),
+      renderer: 'svg',
+      autoplay: true,
+      loop: false,
+      path: "<%= @customisations.upload.url %>"
+    });
+    title.setSpeed(0.2);
+  </script>
+<% end %>
+
+<script>
+  setTimeout(() => {
+    lottie.loadAnimation({
+      container: document.querySelector(".lottie.plugfail"),
+      renderer: 'svg',
+      autoplay: true,
+      loop: true,
+      path: "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/lottie/plugfail.json"
+    });
+  }, 50);
+  
+  setTimeout(() => {
+    lottie.loadAnimation({
+      container: document.querySelector(".lottie.alarm"),
+      renderer: 'svg',
+      autoplay: true,
+      loop: true,
+      path: "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/lottie/alarm.json"
+    });
+  }, 100);
+  
+  setTimeout(() => {
+    lottie.loadAnimation({
+      container: document.querySelector(".lottie.highfive"),
+      renderer: 'svg',
+      autoplay: true,
+      loop: true,
+      path: "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/lottie/highfive.json"
+    });
+  }, 150);
+</script>
+
+<% if @contact.present? %>
+ <script>
+    setTimeout(() => {
+      var contact = lottie.loadAnimation({
+        container: document.querySelector(".lottie.contact"),
+        renderer: 'svg',
+        autoplay: true,
+        loop: false,
+        path: "<%= @contact.upload.url %>"
+      });
+      contact.setSpeed(0.2);
+    }, 200);
+  </script>
+<% end %>

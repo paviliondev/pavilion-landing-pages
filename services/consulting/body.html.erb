@@ -1,0 +1,178 @@
+<div class="page landing">  
+  <div class="container">
+    <div class="title-container">
+      <% if !mobile_view? && @consulting %>
+        <div class="lottie title consulting"></div>
+      <% else %>
+        <h1>Accessible Consulting</h1>
+      <% end %>
+    </div>
+    <div class="text-container">
+      <div class="secondary-text">
+        We provide consulting on user research, software choice and strategy for communties.
+      </div>
+      <ul class="platform-shortlist">
+        <li><a href="https://discourse.org" target="_blank" title="Discourse">
+          <div class="image discourse"></div>
+        </a></li>
+        <li><a href="https://wordpress.org" target="_blank" title="Wordpress">
+          <div class="image wordpress"></div>
+        </a></li>
+        <li><a href="https://auth0.com" target="_blank" title="Auth0">
+          <div class="image auth0"></div>
+        </a></li>
+        <li><a href="https://shopify.com" target="_blank" title="Shopify">
+          <div class="image shopify"></div>
+        </a></li>
+        <li><a href="https://discord.com" target="_blank" title="Discord">
+          <div class="image discord"></div>
+        </a></li>
+        <li><a href="/software" class="more">more</a></li>
+      </ul>
+    </div>
+    <div class="buttons">
+      <a href="https://calendly.com/book-pavilion" class="btn btn-primary btn-cta">
+        <span>Book a consultation</span>
+      </a>
+      <a href="#services" class="btn btn-cta scroll-and-center">Learn more</a>
+    </div>
+  </div>
+</div>
+
+<div id="services" class="page first">
+  <div class="container">
+    <div class="scene-container">
+      <div class="lottie scene large answers"></div>
+    </div>
+    <div class="text-container">
+      <div class="primary-text">
+        <span>We'll help you find the answers</span>
+      </div>
+      <div class="secondary-text">
+        How do you get users to engage more? How do you attract new users? How do you make a community user-friendly? ... and how do you do it on a budget? We can help you find the answers
+      </div>
+    </div>
+    <div class="buttons">
+      <a href="https://calendly.com/book-pavilion" class="btn btn-primary btn-cta">
+        Book a consultation
+      </a>
+    </div>
+  </div>
+</div>
+
+<div id="users" class="page second">
+  <div class="container">
+    <div class="scene-container">
+      <div class="lottie scene large research"></div>
+    </div>
+    <div class="text-container">
+      <div class="primary-text">
+        <span>Go beyond your regulars</span>
+      </div>
+      <div class="secondary-text">
+        You hear a lot from your regulars, but they're only the tip of the iceberg. You might not know as much about everyone else. We help communities understand the diversity amongst their regulars, casuals and guests. 
+      </div>
+    </div>
+    <div class="buttons">
+      <a href="/support" class="btn btn-cta btn-primary">
+        Book a consultation
+      </a>
+    </div>
+  </div>
+</div>
+
+<div id="choice" class="page third">
+  <div class="container">
+    <div class="scene-container">
+      <div class="lottie scene large choice"></div>
+    </div>
+    <div class="text-container">
+      <div class="primary-text">
+        <span>Make the right investment</span>
+      </div>
+      <div class="secondary-text">
+        There are many software solutions for any problem, and running a community is no exception. Knowing the criteria to apply, and how to distinguish marketing from reality, is hard. We can help.
+      </div>
+    </div>
+    <div class="buttons">
+      <a href="https://calendly.com/book-pavilion" class="btn btn-primary btn-cta">
+        Book a consultation
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="page contact">
+  <div class="container">
+    <div class="title-container">
+      <% if !mobile_view? && @contact %>
+        <div class="lottie contact"></div>
+      <% else %>
+        <h1>Talk to Us</h1>
+      <% end %>
+    </div>
+    <div class="buttons">
+      <a href="https://calendly.com/book-pavilion/initial-consult" class="btn btn-primary btn-cta">Book a consultation</a>
+    </div>
+  </div>
+</div>
+
+<% if @consulting.present? %>
+  <script>
+    var title = lottie.loadAnimation({
+      container: document.querySelector(".lottie.consulting"),
+      renderer: 'svg',
+      autoplay: true,
+      loop: false,
+      path: "<%= @consulting.upload.url %>"
+    });
+    title.setSpeed(0.2);
+  </script>
+<% end %>
+
+<script>
+  setTimeout(() => {
+    lottie.loadAnimation({
+      container: document.querySelector(".lottie.answers"),
+      renderer: 'svg',
+      autoplay: true,
+      loop: true,
+      path: "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/lottie/answers.json"
+    });
+  }, 50);
+  
+  setTimeout(() => {
+    lottie.loadAnimation({
+      container: document.querySelector(".lottie.research"),
+      renderer: 'svg',
+      autoplay: true,
+      loop: true,
+      path: "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/lottie/research.json"
+    });
+  }, 100);
+  
+  setTimeout(() => {
+    lottie.loadAnimation({
+      container: document.querySelector(".lottie.choice"),
+      renderer: 'svg',
+      autoplay: true,
+      loop: true,
+      path: "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/lottie/choice.json"
+    });
+  }, 150);
+</script>
+
+<% if @contact.present? %>
+  <script>
+    setTimeout(() => {
+      var contact = lottie.loadAnimation({
+        container: document.querySelector(".lottie.contact"),
+        renderer: 'svg',
+        autoplay: true,
+        loop: false,
+        path: "<%= @contact.upload.url %>"
+      });
+      contact.setSpeed(0.2);
+    }, 200);
+  </script>
+<% end %>

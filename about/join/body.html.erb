@@ -1,0 +1,150 @@
+<div class="landing page join">
+  <div class="container">
+    <div class="title-container">
+      <% if !mobile_view? && @join %>
+        <div class="lottie title join"></div>
+      <% else %>
+        <h1>Join Us</h1>
+      <% end %>
+    </div>
+    <div class="buttons">
+      <a href="#who" class="btn btn-cta btn-primary scroll-and-center">Who we're looking for<label class="updated">updated</label></a>
+      <a href="#joining" class="btn btn-cta scroll-and-center">The joining process</a>
+      <a href="#membership" class="btn btn-cta scroll-and-center">Working with us</a>
+    </div>
+  </div>
+</div>
+
+<div id="who" class="page first">
+  <div class="container">
+    <div class="scene-container">
+      <div class="lottie scene shakuro who"></div>
+    </div>
+    <div class="text-container">
+      <div class="primary-text">
+        <span>Who we're looking for<label class="updated">updated</label></span>
+      </div>
+      <div class="secondary-text">
+        For <b>the first half of 2021</b>, we're looking to add new members in these areas
+        <ul>
+          <li><b>Junior Project Managers</b></li>
+          <li><b>Design-focused Discourse developers</b></li>
+          <li><b>Senior Wordpress Developers</b></li>
+        </ul>        
+        We care about diversity amongst our membership. That means we're particularly interested in hearing from people unlike our <a href='/members'>current members</a>.
+      </div>
+    </div>
+    <div class="buttons">
+      <a href="mailto:angus@thepavilion.io?subject=I'm interested in joining Pavilion" class="btn btn-cta btn-primary">Let us know you're interested</a>
+    </div>
+  </div>
+</div>
+
+<div id="joining" class="page second">
+  <div class="container">
+    <div class="scene-container">
+      <div class="lottie scene shakuro joining"></div>
+    </div>
+    <div class="text-container">
+      <div class="primary-text">
+        <span>Joining is a Process</span>
+      </div>
+      <div class="secondary-text">
+        There are two ways to join Pavilion:
+        <ul>
+          <li><b>Complete a mentorship</b>. Work with a Pavilion member in the area you're interested in.</li>
+          <span class="list-item-divider"><b>Or</b></span>
+          <li><b>Complete a project</b>. You work on an open source project in the area you're interested in.</li>
+        </ul>
+        You'll own any work you do, and you'll leverage what you've built to earn money once you're a full member. The main point of the joining process is to build a relationship with the other members.
+      </div>
+    </div>
+    <div class="buttons">
+      <a href="mailto:angus@thepavilion.io?subject=Tell me more about joining Pavilion" class="btn btn-cta btn-primary">Chat to us about joining</a>
+    </div>
+  </div>
+</div>
+
+<div id="membership" class="page third">
+  <div class="container">
+    <div class="scene-container">
+      <div class="lottie scene shakuro large working"></div>
+    </div>
+    <div class="text-container">
+      <div class="primary-text">
+        <span>Working With Us</span>
+      </div>
+      <div class="secondary-text">
+        Our members take on real responsibility from day one. None of our members are hidden behind managers. Your work has your name on it, you get the credit for it, and all the money earnt by it. We're also run democratically, so you'll get a real say in the direction of the organisation.
+      </div>
+    </div>
+    <div class="buttons">
+      <a href="mailto:members@thepavilion.io?subject=Tell me more about what it's like working with Pavilion" class="btn btn-cta btn-primary">Chat to our members</a>
+    </div>
+  </div>
+</div>
+
+<div class="page contact">
+  <div class="container">
+    <div class="title-container">
+      <% if !mobile_view? && @contact %>
+        <div class="lottie contact"></div>
+      <% else %>
+        <h1>Talk to Us</h1>
+      <% end %>
+    </div>
+    <%= render partial: "contact_form" %>
+  </div>
+</div>
+
+<script>
+  var title = lottie.loadAnimation({
+    container: document.querySelector(".lottie.join"),
+    renderer: 'svg',
+    autoplay: true,
+    loop: false,
+    path: "<%= @join.upload.url %>"
+  });
+  title.setSpeed(0.2);
+  
+  setTimeout(() => {
+    lottie.loadAnimation({
+      container: document.querySelector(".lottie.who"),
+      renderer: 'svg',
+      autoplay: true,
+      loop: true,
+      path: "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/lottie/who.json"
+    });
+  }, 50);
+  
+  setTimeout(() => {
+    lottie.loadAnimation({
+      container: document.querySelector(".lottie.joining"),
+      renderer: 'svg',
+      autoplay: true,
+      loop: true,
+      path: "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/lottie/joining.json"
+    });
+  }, 100);
+  
+  setTimeout(() => {
+    lottie.loadAnimation({
+      container: document.querySelector(".lottie.working"),
+      renderer: 'svg',
+      autoplay: true,
+      loop: true,
+      path: "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/lottie/working.json"
+    });
+  }, 150);
+  
+  setTimeout(() => {
+    var contact = lottie.loadAnimation({
+      container: document.querySelector(".lottie.contact"),
+      renderer: 'svg',
+      autoplay: true,
+      loop: false,
+      path: "<%= @contact.upload.url %>"
+    });
+    contact.setSpeed(0.2);
+  }, 250);
+</script>

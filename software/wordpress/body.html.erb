@@ -1,0 +1,20 @@
+<div class="product page landing">
+  <div class="container">
+    <div class="main-title">    
+      <a class="product-link" href="https://wordpress.org" title="Wordpress.org">
+        <div class="image-container">
+          <div class="image wordpress-large"></div>
+        </div>
+      </a>
+      <a href="https://calendly.com/book-pavilion/initial-consult" class="btn" target="_blank">
+        Talk to us about integrating Wordpress into your community
+      </a>
+    </div>
+    <div class="main-description">
+      <p>We have decades of experience building, maintaining and integrating plugins and themes for Wordpress. Some of our Wordpress work is open source, and we plan to open-source more soon.</p>
+    </div>
+    <div id="plugins" class="section anchor-buffer">
+      <%= render partial: "topic_list", locals: { topics: topic_list(opts: { category: 194, no_definitions: true }) } %>
+    </div>
+  </div>
+</div>

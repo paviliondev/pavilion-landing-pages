@@ -1,0 +1,13 @@
+{
+  "register": {
+    "welcome": "assets/welcome.json",
+    "contact": "assets/contact.json",
+    "software": "assets/software.json",
+    "services": "assets/services.json",
+    "support": "assets/support.json",
+    "customisations": "assets/customisations.json",
+    "about": "assets/about.json",
+    "join": "assets/join.json",
+    "consulting": "assets/consulting.json"
+  }
+}

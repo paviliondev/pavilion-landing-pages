@@ -1,0 +1,9 @@
+{
+  "name": "Auth0",
+  "path": "auth0",
+  "menu": "landing",
+  "theme": "Pavilion Landing",
+  "groups": [
+    "members"
+  ]
+}

@@ -1,0 +1,175 @@
+<div class="page landing">
+  <div class="container">
+    <div class="title-container">
+      <% if !mobile_view? && @services.present? %>
+        <div class="lottie title services"></div>
+      <% else %>
+        <h1>Affordable Services</h1>
+      <% end %>
+    </div>
+    <div class="text-container">
+      <div class="secondary-text">
+        We provide consulting, customisation and support services for online communities.
+      </div>
+      <ul class="platform-shortlist">
+        <li><a href="https://discourse.org" target="_blank" title="Discourse">
+          <div class="image discourse"></div>
+        </a></li>
+        <li><a href="https://wordpress.org" target="_blank" title="Wordpress">
+          <div class="image wordpress"></div>
+        </a></li>
+        <li><a href="https://auth0.com" target="_blank" title="Auth0">
+          <div class="image auth0"></div>
+        </a></li>
+        <li><a href="https://shopify.com" target="_blank" title="Shopify">
+          <div class="image shopify"></div>
+        </a></li>
+        <li><a href="https://discord.com" target="_blank" title="Discord">
+          <div class="image discord"></div>
+        </a></li>
+        <li><a href="/software" class="more">more</a></li>
+      </ul>
+    </div>
+    <div class="buttons">
+      <a href="https://calendly.com/book-pavilion" class="btn btn-primary btn-cta">
+        <span>Book a free consult</span>
+      </a>
+      <a href="#experts" class="btn btn-cta scroll-and-center">Learn more</a>
+    </div>
+  </div>
+</div>
+
+<div id="experts" class="page first">
+  <div class="container">
+    <div class="scene-container">
+      <div class="lottie scene shakuro medium experts"></div>
+    </div>
+    <div class="text-container">
+      <div class="primary-text">
+        <span>We specialise in communties</span>
+      </div>
+      <div class="secondary-text">
+        Our services are specifically for online communites. As well as being subject-matter experts, many of our members run their own communities. We have many years of experience building, maintaining, advising on, and running communities. We live and breathe this.
+      </div>
+    </div>
+    <div class="buttons">
+      <a href="https://calendly.com/book-pavilion/initial-consult" class="btn btn-primary btn-cta">Book a free consult</a>
+    </div>
+  </div>
+</div>
+
+<div id="affordable" class="page second">
+  <div class="container">
+    <div class="scene-container">
+      <div class="lottie scene shakuro medium affordable"></div>
+    </div>
+    <div class="text-container">
+      <div class="primary-text">
+        <span>Our rates are affordable</span>
+      </div>
+      <div class="secondary-text">
+        We're and non-profit with no overheads. Our fees only cover the wages of those who work on your project. That means we provide high quality professional services at rates affordable to communities large and small. We also build and use open source software wherever possible, further reducing the cost.
+      </div>
+    </div>
+    <div class="buttons">
+      <a href="/who-we-are" class="btn btn-cta">More about us</a>
+      <a href="/software" class="btn btn-cta">More about our software</a>
+    </div>
+  </div>
+</div>
+
+<div id="friends" class="page third">
+  <div class="container">
+    <div class="scene-container">
+      <div class="lottie scene shakuro medium friends"></div>
+    </div>
+    <div class="text-container">
+      <div class="primary-text">
+        <span>You'll be in good company</span>
+      </div>
+      <div class="secondary-text">
+        We work with a wide range of organisations, from fortune 500s, to universities, to non-profits, and small one-person local neighbourhood groups. That diversity is important to us. It adds a richness to our understanding of community that you don't get when you focus just on the top end of town.
+      </div>
+    </div>
+    <div class="buttons">
+      <a href="/who-we-are#communities" class="btn btn-cta">More about our philosophy</a>
+    </div>
+  </div>
+</div>
+
+<div class="page contact">
+  <div class="container">
+    <div class="title-container">
+      <% if !mobile_view? && @contact %>
+        <div class="lottie contact"></div>
+      <% else %>
+        <h1>Talk to Us</h1>
+      <% end %>
+    </div>
+    <div class="buttons">
+      <a href="https://calendly.com/book-pavilion/initial-consult" class="btn btn-primary btn-cta">Book a free consult</a>
+      <a href="/customisations" class="btn btn-cta">More about customisations</a>
+      <a href="/support" class="btn btn-cta">More about support</a>
+    </div>
+  </div>
+</div>
+
+<% if @services.present? %>
+  <script>
+    var title = lottie.loadAnimation({
+      container: document.querySelector(".lottie.services"),
+      renderer: 'svg',
+      autoplay: true,
+      loop: false,
+      path: "<%= @services.upload.url %>"
+    });
+    title.setSpeed(0.2);
+  </script>
+<% end %>
+
+<script>  
+  setTimeout(() => {
+    lottie.loadAnimation({
+      container: document.querySelector(".lottie.experts"),
+      renderer: 'svg',
+      autoplay: true,
+      loop: true,
+      path: "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/lottie/experts.json"
+    });
+  }, 50);
+  
+  setTimeout(() => {
+    lottie.loadAnimation({
+      container: document.querySelector(".lottie.affordable"),
+      renderer: 'svg',
+      autoplay: true,
+      loop: true,
+      path: "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/lottie/affordable.json"
+    });
+  }, 100);
+  
+  setTimeout(() => {
+    lottie.loadAnimation({
+      container: document.querySelector(".lottie.friends"),
+      renderer: 'svg',
+      autoplay: true,
+      loop: true,
+      path: "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/lottie/friends.json"
+    });
+  }, 150);
+</script>
+
+<% if @contact.present? %>
+  <script>  
+    setTimeout(() => {
+      var contact = lottie.loadAnimation({
+        container: document.querySelector(".lottie.contact"),
+        renderer: 'svg',
+        autoplay: true,
+        loop: false,
+        path: "<%= @contact.upload.url %>"
+      });
+      contact.setSpeed(0.2);
+    }, 200);
+  </script>
+<% end %>

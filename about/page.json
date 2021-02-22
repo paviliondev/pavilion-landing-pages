@@ -1,0 +1,13 @@
+{
+  "name": "Who We Are",
+  "path": "who-we-are",
+  "menu": "landing",
+  "theme": "Pavilion Landing",
+  "groups": [
+    "members"
+  ],
+  "assets": [
+    "whoweare",
+    "contact"
+  ]
+}

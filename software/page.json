@@ -1,0 +1,13 @@
+{
+  "name": "Software",
+  "path": "software",
+  "menu": "landing",
+  "theme": "Pavilion Landing",
+  "groups": [
+    "members"
+  ],
+  "assets": [
+    "software",
+    "contact"
+  ]
+}
