@@ -2,7 +2,7 @@
   "name": "Blog",
   "path": "blog",
   "menu": "landing",
-  "theme": "Pavilion Landing",
+  "theme": "Pavilion Landing Theme",
   "groups": [
     "members"
   ]

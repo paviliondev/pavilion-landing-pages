@@ -2,7 +2,7 @@
   "name": "Who We Are",
   "path": "who-we-are",
   "menu": "landing",
-  "theme": "Pavilion Landing",
+  "theme": "Pavilion Landing Theme",
   "groups": [
     "members"
   ],

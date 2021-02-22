@@ -2,7 +2,7 @@
   "name": "Welcome",
   "path": "welcome",
   "menu": "landing",
-  "theme": "Pavilion Landing",
+  "theme": "Pavilion Landing Theme",
   "assets": [
     "welcome",
     "contact"
