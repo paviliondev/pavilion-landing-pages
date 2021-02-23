@@ -126,7 +126,7 @@
       loop: true,
       path: "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/lottie/welcomesoftware.json"
     });
-  }, 30);
+  }, 50);
   
   setTimeout(() => {
     lottie.loadAnimation({
@@ -136,7 +136,7 @@
       loop: true,
       path: "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/lottie/welcomeservices.json"
     });
-  }, 60);
+  }, 100);
   
   setTimeout(() => {
     lottie.loadAnimation({
@@ -146,7 +146,7 @@
       loop: true,
       path: "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/lottie/welcomemembers.json"
     });
-  }, 90);
+  }, 150);
 </script>
 
 <% if @contact.present? %>
@@ -160,6 +160,6 @@
         path: "<%= @contact.upload.url %>"
       });
       contact.setSpeed(0.2);
-    }, 120);
+    }, 200);
   </script>
 <% end %>
