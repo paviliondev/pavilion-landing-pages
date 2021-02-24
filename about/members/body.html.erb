@@ -28,7 +28,7 @@
               top_extra: "<ul class='user-links'>
                 <li><a class='btn btn-icon' href='#{Discourse.base_url}/new-message?username=#{user.username}'>#{SvgSprite.raw_svg('envelope')}</a></li>
                 <li><a class='btn btn-icon' href='https://github.com/#{user.user_associated_accounts.where("provider_name = 'github'").select("info->'nickname' as nickname").first.try(:nickname)}'>#{SvgSprite.raw_svg('fab-github')}</a></li>
-                <li><a class='btn btn-icon' href='https://meta.discourse.org/u/#{user.user_fields["4"] || user.username}'>#{SvgSprite.raw_svg('fab-discourse')}</a></li>
+                <li><a class='btn btn-icon' href='https://meta.discourse.org/u/#{user.user_fields["4"].present? ? user.user_fields["4"] : user.username}'>#{SvgSprite.raw_svg('fab-discourse')}</a></li>
               </ul>".strip
             ) %>
           </div>
