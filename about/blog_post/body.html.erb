@@ -1,0 +1,7 @@
+<% topic(params[:param], opts: {include_suggested: false, include_related: false, post_number: 1 }, instance_var: "topic") %>
+
+<div class="contents">
+  <div class="post">    
+    <%= @topic.posts.first.cooked %>
+  </div>
+</div>

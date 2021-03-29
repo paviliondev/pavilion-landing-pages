@@ -1,0 +1,7 @@
+{
+  "name": "Blog Post",
+  "parent": "blog",
+  "menu": "landing",
+  "theme": "Pavilion Landing Theme",
+  "groups": []
+}
