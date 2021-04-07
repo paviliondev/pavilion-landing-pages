@@ -8,8 +8,9 @@
     <% topic_list(opts: { category: 'blog', no_definitions: true, per_page: 10, page: params[:page] }).each.with_index do |topic, index| %>
       <%= render partial: "topic_list_item", locals: {
         topic: topic,
-        topic_item_classes: "tag-getting-started #{index == 0 ? "post-card-large" : ""}",
+        item_classes: "blog-post #{index == 0 ? "post-large" : ""}",
         topic_excerpt_length: index == 0 ? 30 : 20,
+        topic_url: "/blog/#{topic.id}",
         user_profile_opts: {
           include_avatar: true,
           avatar_size: 60
@@ -17,10 +18,5 @@
       } %>
     <% end %>
   </div>
-
-  <div class="controls right">
-    <a class="btn page-prev">Previous<%= SvgSprite.raw_svg('angle-up') %></a>
-    <a class="btn page-next">Next<%= SvgSprite.raw_svg('angle-down') %></a>
-  </div>
-
 </div>
+
