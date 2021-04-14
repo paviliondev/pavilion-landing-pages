@@ -12,18 +12,19 @@
       <div class="item-list-toggle">
         <a href="#everyone" class="toggle active" data-group>Everyone</a>
         <a href="#developers" class="toggle" data-group="developers">Developers</a>
+        <a href="#designers" class="toggle" data-group="designers">Designers</a>
         <a href="#project-managers" class="toggle" data-group="project-managers">Project Managers</a>
         <a href="#board" class="toggle" data-group="board">Board</a>
       </div>
     </div>
     <ul class="item-list">
       <% user_list(group_name: 'members', order: "random() ASC").each do |user| %>
-        <li class="item <%= user.groups.where(name: ['developers', 'project_managers', 'board']).map{ |g| g.name.downcase.dasherize }.join(' ') %>">
+        <li class="item <%= user.groups.where(name: ['developers', 'designers', 'project_managers', 'board']).map{ |g| g.name.downcase.dasherize }.join(' ') %>">
           <div class="user-details-container">
             <%= user_profile(
               user,
               avatar_size: 120,
-              show_groups: ['developers', 'project_managers', 'board'],
+              show_groups: ['developers', 'designers', 'project_managers', 'board'],
               add_bio: true,
               top_extra: "<ul class='user-links'>
                 <li><a class='btn btn-icon' href='#{Discourse.base_url}/new-message?username=#{user.username}'>#{SvgSprite.raw_svg('envelope')}</a></li>
