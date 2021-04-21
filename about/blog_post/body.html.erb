@@ -24,14 +24,13 @@
     </section>
 </article>
 
-<div class="subscribe">
+<div class="subscribe <% if current_user %>user<% else %>guest<% end %>">
   <% if current_user %>
-    <div class="subscribe-user-button">
-      <img width="35" height="35" class="subscribe-avatar" src="<%= current_user.small_avatar_url %>">
-      <div class="subscribe-label">Subscribe</div>
-    </div>
+    <img width="35" height="35" class="subscribe-avatar" src="<%= current_user.small_avatar_url %>">
+    <div class="subscribe-label subscribe-user">Subscribe</div>
   <% else %>
-    <a class="subscribe-guest-button" href="thepavilion.io/signup"></a>
+    <div class="subscribe-icon"><%= SvgSprite.raw_svg('user-circle') %></div>
+    <div class="subscribe-label">Subscribe</div>
   <% end %>
 </div>
 
@@ -39,8 +38,8 @@
   <div class="subscribe-modal">
     <div class="subscribe-modal-content">
       <div class="modal-header">
+        <h3 class="subscribe-title">Subscribe</h3>
         <span class="subscribe-modal-close"><%= SvgSprite.raw_svg('times') %></span>
-        <h2 class="subscribe-title">Subscribe!</h2>
       </div>
       <div class="modal-content">
         <div class="subscribe-checkbox">
