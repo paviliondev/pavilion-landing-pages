@@ -24,8 +24,7 @@
   <% if current_user %>
     <img width="35" height="35" class="subscribe-avatar" src="<%= current_user.small_avatar_url %>">
   <% else %>
-    <div class="subscribe-icon"><%= SvgSprite.raw_svg('user-circle') %></div>
-    <div class="subscribe-label">Subscribe</div>
+    <div class="subscribe-icon"><%= SvgSprite.raw_svg('user') %></div>
   <% end %>
 </div>
 
@@ -34,7 +33,7 @@
     <div class="subscribe-modal-content">
       <div class="modal-header">
         <h3 class="subscribe-title">Subscribe</h3>
-        <div class="subscribe-modal-close"><%= SvgSprite.raw_svg('times') %></div>
+        <span class="subscribe-modal-close"><%= SvgSprite.raw_svg('times') %></span>
       </div>
       <div class="modal-content">
         <div class="subscribe-checkbox">
