@@ -24,7 +24,7 @@
   <% if current_user %>
     <img width="35" height="35" class="subscribe-avatar" src="<%= current_user.small_avatar_url %>">
   <% else %>
-    <div class="subscribe-icon"><%= SvgSprite.raw_svg('user') %></div>
+    <div class="subscribe-icon"><%= SvgSprite.raw_svg('user-circle') %></div>
   <% end %>
   <div class="subscribe-label">Subscribe</div>
 </div>
