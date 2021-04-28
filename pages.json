@@ -11,7 +11,7 @@
   },
   "footer": {
     "root": "/welcome",
-    "logo": "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/logo-inverse.svg",
+    "logo": "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/logo-inverse.png",
     "left_text": "These pages are <a href='https://github.com/paviliondev/pavilion-landing-pages' target='_blank'>open source</a>, and built with our <a href='/c/knowledge/landing-pages'>Landing Pages Plugin</a> for <a href='https://discourse.org'>Discourse</a>. We've used a background made by <a href='https://franzidraws.com' target='_blank'>Franzi</a>. We've used animations made by <a href='https://lottiefiles.com/henriqrossatto' target='_blank'>Henrique Rossatto on LottieFiles</a>, Shakuro on both <a href='https://lottiefiles.com/Shakuro'>LottieFiles</a> and <a href='https://drawer.design/products/collaborative-characters/' target='_blank'>Drawer</a>, <a href='https://lottiefiles.com/dotolina' target='_blank'>Dotolina on LottieFiles</a> and by <a href='https://drawer.design/vendor/drawer' target='_blank'>Drawer itself</a>. We've used icons made by <a href='https://icons8.com/' target='_blank'>Icons8</a>. Those assets are used under license, and the copyright belongs to their wonderful creators."
   },
   "menus": [
