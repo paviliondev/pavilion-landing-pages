@@ -1,61 +1,72 @@
-<% topic_view(params[:param], opts: {include_suggested: false, include_related: false, post_number: 1 }, instance_var: "topic_view") %>
+<% if current_user %>
+  <% set_category_user('blog') %>
+<% end %>
 
-<article class="topic post blog-post">
-  <div class="container canvas">
-    <header class="header">
-      <h1 class="title"> <%= @topic_view.title %> </h1>
-      <p class="excerpt"> <%= @topic_view.summary.split[0...20].join(' ').gsub("[image]", "") %>…</p>
+<% topic_view(params[:param], opts: {
+  include_suggested: false,
+  include_related: false, post_number: 1
+}, instance_var: "topic_view") %>
 
-      <div class="article-byline">
-        <section class="topic-byline">
-          <ul class="author-list">
-            <li class="author-list-item">
-              <%= user_profile(@topic_view.topic.user, { include_avatar: true, avatar_size: 60 }) %>
-            </li>
-          </ul>
-          <div class="topic-meta">
-              <span class="bull">•</span>
-              <span class="date"><%= short_date(DateTime.strptime(@topic_view.published_time, '%FT%T%:z')) %></span>
-          </div>
-        </section>
-      </div>
-    </header>
-    <section class="content">
-      <%= @topic_view.posts.first.cooked.html_safe %>
-    </section>
+<div class="title-container" <% unless mobile_view? %> style="background-image: url(<%= @topic_view.topic.image_url %>) <% end %>">
+  <div class="contents canvas">
+    <h1 title="<%= @topic_view.title %>" class="title"><%= @topic_view.title %></h1>
+    <%= render partial: 'topic_byline', locals: {
+      topic: @topic_view.topic,
+      include_link: true,
+      user_profile_opts: {
+        include_avatar: true,
+        avatar_size: 60
+      }
+    } %>
   </div>
+</div>
 
+<a href="/blog" class="btn btn-fixed btn-blog" title="Posts">
+  <div class="fixed-icon"><%= SvgSprite.raw_svg('stream') %></div>
+  <% unless mobile_view? %>
+    <div class="fixed-label">Posts</div>
+  <% end %>
+</a>
 
-  <div class="comment-container">
-    <% if @topic_view.posts.length > 1 %>
-      <div class="comment-heading"> <h4>Comments</h4> </div>
-      <div class="comments canvas">
-        <% @topic_view.posts[1..-1].each do |post| %>
-          <div class="comment">
-            <div class="comment-avatar">
-              <img width="35" height="35" class="img-avatar" src="<%= post.user.small_avatar_url %>">
+<article class="post">
+  <div class="container">
+    <section class="post-content canvas">
+      <%= landing_post_html(@topic_view.posts.first).html_safe %>
+    </section>
+
+    <div class="comment-container">
+      <% if @topic_view.posts.length > 1 %>
+        <div class="comment-heading"><h4>Comments</h4></div>
+        <div class="comments canvas">
+          <% @topic_view.posts[1..-1].each do |post| %>
+            <div class="comment">
+              <div class="comment-avatar">
+                <img width="35" height="35" class="img-avatar" src="<%= post.user.small_avatar_url %>">
+              </div>
+              <div class="comment-content">
+                <h3 class="comment-user" title="<%= post.user.username %>"><%= post.user.username %></h3>
+                <p><%= post.cooked.html_safe %></p>
+              </div>
             </div>
-            <div class="comment-content">
-              <h3 class="comment-user"><%= post.user.username %></h3>
-              <p><%= post.cooked.html_safe %></p>
-            </div>
-          </div>
-        <% end %>
-     </div>
-   <% end %>
-    <div class="comment-footer">
-      <a class="btn btn-primary" href="<%= @topic_view.topic.url %>">Continue Discussion</a>
+          <% end %>
+       </div>
+     <% end %>
+      <div class="comment-footer">
+        <a class="btn btn-primary" href="<%= @topic_view.topic.url %>">Post a reply</a>
+      </div>
     </div>
   </div>
 </article>
 
-<div class="subscribe <% if current_user %>user<% else %>guest<% end %>">
+<div class="btn btn-fixed btn-subscribe <% if current_user %>user<% else %>guest<% end %>" title="Subscribe">
   <% if current_user %>
-    <img width="35" height="35" class="subscribe-avatar" src="<%= current_user.small_avatar_url %>">
+    <img class="fixed-avatar" src="<%= current_user.avatar_template_url.gsub("{size}", "65") %>">
   <% else %>
-    <div class="subscribe-icon"><%= SvgSprite.raw_svg('user-circle') %></div>
+    <div class="fixed-icon"><%= SvgSprite.raw_svg('user-circle') %></div>
   <% end %>
-  <div class="subscribe-label">Subscribe</div>
+  <% unless mobile_view? %>
+    <div class="fixed-label">Subscribe</div>
+  <% end %>
 </div>
 
 <% if current_user %>
@@ -66,16 +77,14 @@
         <span class="subscribe-modal-close"><%= SvgSprite.raw_svg('times') %></span>
       </div>
       <div class="modal-content">
-        <div class="subscribe-checkbox">
-          <span>Subscribe to blog</span>
-          <input type="checkbox" class="checkbox" checked=<%= current_user.present? %>/>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <div class="subscribe-buttons">
-          <button type="button" class="btn btn-label btn-subscribe">Submit</button>
-          <a class="subscribe-cancel-link">Cancel</a>
-        </div>
+        <% if @category_user.present? %>
+          <%= render partial: "subscription_form", locals: {
+            category_id: @category_user.category.id,
+            subscribed: (@category_user &&
+              @category_user.notification_level >= CategoryUser.notification_levels[:watching_first_post]
+            )
+          } %>
+        <% end %>
       </div>
     </div>
   </div>
