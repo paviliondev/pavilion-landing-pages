@@ -73,11 +73,11 @@
   <%= render partial: 'modal', locals: {
     title: "Subscribe",
     class: "subscribe",
-    content: <%= render partial: "subscription_form", locals: {
+    content: render(partial: "subscription_form", locals: {
       category_id: @category_user.category.id,
       subscribed: (@category_user &&
         @category_user.notification_level >= CategoryUser.notification_levels[:watching_first_post]
       )
-    } %>
+    }) %>
   }
 <% end %>
