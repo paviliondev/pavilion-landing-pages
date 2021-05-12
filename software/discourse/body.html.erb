@@ -18,14 +18,14 @@
         <a href="#plugins" title="Pavilion's Discourse Plugins">Plugins</a>
       </div>
       <%= render partial: "topic_list", locals: {
-        topics: topic_list(opts: { category: 171, definitions_only: true, filter_categories: [171, 129] })
+        topics: topic_list(list_opts: { category: 171, definitions_only: true, filter_categories: [171, 129] })
       } %>
     </div>
     <div id="themes" class="section anchor-buffer themes">
       <div class="title">
         <a href="#themes" title="Pavilion's Discourse Themes">Themes</a>
       </div>
-      <%= render partial: "topic_list", locals: { topics: topic_list(opts: { category: 129, no_definitions: true }) } %>
+      <%= render partial: "topic_list", locals: { topics: topic_list(list_opts: { category: 129, no_definitions: true }) } %>
     </div>
   </div>
 </div>
