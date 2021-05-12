@@ -31,7 +31,7 @@
 <article class="post">
   <div class="container">
     <section class="post-content canvas">
-      <%= landing_post_html(@topic_view.posts.first).html_safe %>
+      <%= ::LandingPages::Post.html(@topic_view.posts.first).html_safe %>
     </section>
 
     <div class="comment-container">
