@@ -3,11 +3,7 @@
     "https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.6.5/lottie.min.js"
   ],
   "header": {
-    "root": "/welcome",
-    "notice": {
-      "href": "/join",
-      "text": "We're looking for new members"
-    }
+    "root": "/welcome"
   },
   "footer": {
     "root": "/welcome",
